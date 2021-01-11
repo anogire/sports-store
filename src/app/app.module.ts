@@ -6,10 +6,12 @@ import { AppComponent } from './app.component';
 import { StoreModule } from './store/store.module';
 import { AdminModule } from './admin/admin.module';
 import { ModelModule } from './model/model.module';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

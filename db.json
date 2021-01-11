@@ -27,6 +27,13 @@
       "category": "Category 4",
       "description": "desc 4",
       "price": 400
+    },
+    {
+      "id": 5,
+      "name": "product 5",
+      "category": "Category 3",
+      "description": "desc 5",
+      "price": 500
     }
   ]
 }

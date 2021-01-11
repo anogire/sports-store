@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+
 import { Product } from 'src/app/model/product.model';
 import { ProductRepository } from 'src/app/model/product.repository';
 
@@ -9,12 +11,20 @@ import { ProductRepository } from 'src/app/model/product.repository';
 })
 export class StoreComponent implements OnInit {
 
-  constructor(private productRepository: ProductRepository) { }
+  public productList$: Observable<Product[]>;
+  public categoryList$: Observable<any>;
+
+  constructor(
+    private productRepository: ProductRepository
+  ) { }
 
   ngOnInit(): void {
-    this.productRepository.getAll().subscribe((products: Product[]) => {
-      console.log(products);
-    })
+    this.productList$ = this.productRepository.getByCategory();
+    this.categoryList$ = this.productRepository.getCategories();
+  }
+
+  public filter(condition?: string): void {
+    this.productList$ = this.productRepository.getByCategory(condition);
   }
 
 }

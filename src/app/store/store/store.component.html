@@ -6,9 +6,42 @@
   </div>
   <div class="row">
     <div class="col-3 p-2">
-      <button class="btn btn-block btn-outline-primary">Home</button>
+      <div *ngIf="categoryList$ | async">
+        <button class="btn btn-block btn-outline-primary" (click)="filter()">Home</button>
+        <button *ngFor="let item of categoryList$ | async" (click)="filter(item)"
+          class="btn btn-block btn-outline-primary">
+          {{item}}
+        </button>
+        <button [routerLink]="'../admin'" class="btn btn-block btn-danger mt-5" tabindex="0"> Admin </button>
+      </div>
+
     </div>
-    <div class="col-9">
+    <div class="col-9 p-2">
+      <div *ngIf="productList$ | async; else noData">
+        <div *ngFor="let item of productList$ | async" class="card m-1 p-1 bg-light">
+          <h4> {{item.name}} <span class="badge badge-pill badge-primary float-right"> $100.00
+            </span></h4>
+          <div class="card-text bg-white p-1"> {{item.name}} ({{item.category}})
+            <button [routerLink]="'../cart'" class="btn btn-success btn-sm float-right"> Add To Cart </button>
+          </div>
+        </div>
+      </div>
+      <ng-template #noData>
+        <p>No data</p>
+      </ng-template>
+      <!--
+        <div class="form-inline float-left mr-1"><select class="form-control">
+            <option value="3">3 per Page</option>
+            <option value="4">4 per Page</option>
+            <option value="6">6 per Page</option>
+            <option value="8">8 per Page</option>
+          </select></div>
+        <div class="btn-group float-right"><button class="btn btn-outline-primary active"> 1 </button><button
+            class="btn btn-outline-primary"> 2 </button><button class="btn btn-outline-primary"> 3 </button><button
+            class="btn btn-outline-primary"> 4 </button>
+      </div>
+                -->
+
 
     </div>
   </div>

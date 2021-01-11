@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'store' }
-  //{path: '**', component: NotFoundComponent}
 ];
 
 @NgModule({
