@@ -7,17 +7,19 @@ import { StoreModule } from './store/store.module';
 import { AdminModule } from './admin/admin.module';
 import { ModelModule } from './model/model.module';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { HeadComponent } from './head/head.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    NotFoundComponent
+    HeadComponent,
+    NotFoundComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     StoreModule,
     AdminModule,
+    AppRoutingModule,
     ModelModule
   ],
   providers: [],

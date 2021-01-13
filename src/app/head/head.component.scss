@@ -1,0 +1,31 @@
+@import "src/assets/icon-fonts/icon-fonts.scss";
+
+.cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  background-color: transparent;
+  font-size: 16px;
+  color: #fff;
+  border: none;
+}
+
+.cart-active {
+  &:hover,
+  &:focus {
+    outline: none;
+    color: #007bff !important;
+  }
+  &:active {
+    outline: none;
+    color: #fff;
+  }
+}
+
+.cart-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+}

@@ -16,6 +16,6 @@ export class NotFoundComponent implements OnInit {
   }
 
   public goBack(): void {
-    this.router.navigate(['store']);
+    this.router.navigate(['../']);
   }
 }

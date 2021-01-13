@@ -1,48 +1,45 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col bg-dark text-white">
-      <a class="navbar-brand">SPORTS STORE</a>
+<div class="row">
+  <div class="col-3 p-2">
+    <div *ngIf="categoryList$ | async">
+      <button class="btn btn-block btn-outline-primary" (click)="filter()">Home</button>
+      <button *ngFor="let item of categoryList$ | async" (click)="filter(item)"
+        class="btn btn-block btn-outline-primary">
+        {{item}}
+      </button>
+      <button routerLink="/admin/auth" class="btn btn-block btn-danger mt-5" tabindex="0"> Admin </button>
     </div>
   </div>
-  <div class="row">
-    <div class="col-3 p-2">
-      <div *ngIf="categoryList$ | async">
-        <button class="btn btn-block btn-outline-primary" (click)="filter()">Home</button>
-        <button *ngFor="let item of categoryList$ | async" (click)="filter(item)"
-          class="btn btn-block btn-outline-primary">
-          {{item}}
-        </button>
-        <button [routerLink]="'../admin'" class="btn btn-block btn-danger mt-5" tabindex="0"> Admin </button>
-      </div>
-
-    </div>
-    <div class="col-9 p-2">
-      <div *ngIf="productList$ | async; else noData">
-        <div *ngFor="let item of productList$ | async" class="card m-1 p-1 bg-light">
-          <h4> {{item.name}} <span class="badge badge-pill badge-primary float-right"> $100.00
-            </span></h4>
-          <div class="card-text bg-white p-1"> {{item.name}} ({{item.category}})
-            <button [routerLink]="'../cart'" class="btn btn-success btn-sm float-right"> Add To Cart </button>
-          </div>
+  <div class="col-9 p-2">
+    <div *ngIf="productList$ | async; else noData">
+      <div *ngFor="let item of productList$ | async | slice: (page-1) * viewRows : page * viewRows"
+        class="card m-1 p-1 bg-light">
+        <h4> {{item.name}} <span class="badge badge-pill badge-primary float-right"> {{item.price | currency}}
+          </span></h4>
+        <div class="card-text bg-white p-1"> {{item.description}} ({{item.category}})
+          <button (click)="addToCart(item)" class="btn btn-success btn-sm float-right"> Add
+            To Cart </button>
         </div>
       </div>
-      <ng-template #noData>
-        <p>No data</p>
-      </ng-template>
-      <!--
-        <div class="form-inline float-left mr-1"><select class="form-control">
-            <option value="3">3 per Page</option>
-            <option value="4">4 per Page</option>
-            <option value="6">6 per Page</option>
-            <option value="8">8 per Page</option>
-          </select></div>
-        <div class="btn-group float-right"><button class="btn btn-outline-primary active"> 1 </button><button
-            class="btn btn-outline-primary"> 2 </button><button class="btn btn-outline-primary"> 3 </button><button
-            class="btn btn-outline-primary"> 4 </button>
+      <div class="form-inline float-left mr-1 m-1">
+        <select name="duration" [(ngModel)]="viewRows" class="form-control">
+          <option [ngValue]="1">1 per Page</option>
+          <option [ngValue]="3" selected>3 per Page</option>
+          <option [ngValue]="6">6 per Page</option>
+          <option [ngValue]="10">10 per Page</option>
+        </select>
       </div>
-                -->
-
-
+      <ul class="pgn-block m-1">
+        <ng-container *ngFor="let item of productList$ | async; let i = index;">
+          <li class="page-item" *ngIf="i % viewRows === 0;" [ngClass]="{active: page === i / viewRows + 1}">
+            <button class="page-link pgn-block__page" (click)="page = i / viewRows + 1" aria-label="Current page">
+              {{ i / viewRows + 1}}
+            </button>
+          </li>
+        </ng-container>
+      </ul>
     </div>
+    <ng-template #noData>
+      <p>No data</p>
+    </ng-template>
   </div>
 </div>

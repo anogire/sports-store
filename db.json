@@ -35,5 +35,92 @@
       "description": "desc 5",
       "price": 500
     }
+  ],
+  "orders": [
+    {
+      "user": {
+        "name": "wert",
+        "address": "2345"
+      },
+      "cartList": [
+        {
+          "product": {
+            "id": 2,
+            "name": "product 2",
+            "category": "Category 2",
+            "description": "desc 2",
+            "price": 200
+          },
+          "id": 2,
+          "quantity": 3
+        }
+      ],
+      "shipped": false,
+      "id": 1
+    },
+    {
+      "user": {
+        "name": "111",
+        "address": "12222"
+      },
+      "cartList": [
+        {
+          "product": {
+            "id": 1,
+            "name": "product 1",
+            "category": "Category 1",
+            "description": "desc 1",
+            "price": 100
+          },
+          "id": 1,
+          "quantity": 3
+        },
+        {
+          "product": {
+            "id": 3,
+            "name": "product 3",
+            "category": "Category 3",
+            "description": "desc 3",
+            "price": 300
+          },
+          "id": 3,
+          "quantity": 1
+        },
+        {
+          "product": {
+            "id": 5,
+            "name": "product 5",
+            "category": "Category 3",
+            "description": "desc 5",
+            "price": 500
+          },
+          "id": 5,
+          "quantity": 4
+        }
+      ],
+      "shipped": false,
+      "id": 2
+    },
+    {
+      "user": {
+        "name": "456",
+        "address": "456"
+      },
+      "cartList": [
+        {
+          "product": {
+            "id": 3,
+            "name": "product 3",
+            "category": "Category 3",
+            "description": "desc 3",
+            "price": 300
+          },
+          "id": 3,
+          "quantity": 1
+        }
+      ],
+      "shipped": false,
+      "id": 3
+    }
   ]
 }

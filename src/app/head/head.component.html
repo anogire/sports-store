@@ -1,0 +1,18 @@
+<div *ngIf="!hasPathParam('admin')" class="row">
+  <div class="col bg-dark cart-info">
+    <a class="navbar-brand">SPORTS STORE</a>
+    <div *ngIf="hasPathParam('store')" class="cart-info">
+      <small> Your cart:
+        <span *ngIf="cartRepository.isEmpty; else items"> (empty) </span>
+        <ng-template #items>
+          <span>{{cartRepository.getCartLineList().length}} item(s)
+            {{cartRepository.getTotal() | currency}} </span>
+        </ng-template>
+      </small>
+      <button routerLink="/cart" class="btn btn-sm bg-dark text-white cart icon icon-cart"
+        [disabled]="cartRepository.isEmpty" [class.cart-active]="!cartRepository.isEmpty"
+        aria-label="go to the customer cart">
+      </button>
+    </div>
+  </div>
+</div>

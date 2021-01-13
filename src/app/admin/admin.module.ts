@@ -11,7 +11,14 @@ import { OrdersComponent } from './main/orders/orders.component';
 
 
 @NgModule({
-  declarations: [AdminComponent, AuthComponent, MainComponent, ProductTableComponent, ProductFormComponent, OrdersComponent],
+  declarations: [
+    AdminComponent,
+    AuthComponent,
+    MainComponent,
+    ProductTableComponent,
+    ProductFormComponent,
+    OrdersComponent
+  ],
   imports: [
     CommonModule,
     AdminRoutingModule

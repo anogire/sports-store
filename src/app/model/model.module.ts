@@ -5,13 +5,15 @@ import { HttpClientModule } from '@angular/common/http'
 import { ProductRepository } from './product.repository';
 import { ProductFactory } from './product.factory';
 import { RestService } from './rest.service';
+import { OrderRestService } from './order-rest.service';
 
 @NgModule({
   declarations: [],
   providers: [
     ProductRepository,
     ProductFactory,
-    RestService
+    RestService,
+    OrderRestService
   ],
   imports: [
     CommonModule,

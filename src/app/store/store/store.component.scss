@@ -1,0 +1,35 @@
+ul {
+  list-style-type: none;
+}
+.pgn-block {
+  display: flex;
+  justify-content: flex-end;
+}
+.pgn-block__controls {
+  box-shadow: none;
+  border: none;
+  &:hover,
+  &focus,
+  &:active {
+    outline: none;
+    box-shadow: none;
+    background-color: transparent;
+    color: #aedcf8;
+  }
+}
+.pgn-block__page {
+  border: none;
+  &:hover,
+  &:focus {
+    background-color: #007bff;
+    color: #fff;
+    outline: none;
+    box-shadow: none;
+  }
+  &:active {
+    outline: none;
+    box-shadow: none;
+    background-color: #fff;
+    color: #000;
+  }
+}
