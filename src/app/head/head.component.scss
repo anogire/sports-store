@@ -1,4 +1,5 @@
 @import "src/assets/icon-fonts/icon-fonts.scss";
+//@import "~bootstrap/scss/bootstrap.scss";
 
 .cart {
   display: flex;
@@ -27,5 +28,5 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #fff;
+  color: #fff !important;
 }

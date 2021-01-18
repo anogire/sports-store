@@ -20,8 +20,7 @@ export class CartRepository {
       const cartLine = new CartLine(product);
       this.cartLineList.push(cartLine);
     } else {
-      const index = this.cartLineList.findIndex(item => item === newLine);
-      this.cartLineList[index].quantity += 1;
+      newLine.plus();
     }
   }
 
