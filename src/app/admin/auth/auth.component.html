@@ -2,18 +2,18 @@
   <h3>SportsStore Admin</h3>
 </div>
 <div class="p-2">
-  <form novalidate>
+  <form [formGroup]="authForm" (ngSubmit)="login()" novalidate>
     <div class="form-group">
       <label for="username">Name</label>
-      <input id="username" class="form-control">
+      <input formControlName="login" id="username" class="form-control">
     </div>
     <div class="form-group">
       <label for="password">Password</label>
-      <input type="password" id="password" class="form-control">
+      <input formControlName="password" type="password" id="password" class="form-control">
     </div>
     <div class="text-center">
-      <button routerLink="/" class="btn btn-secondary m-1" tabindex="0">Go back</button>
-      <button type="submit" class="btn btn-primary m-1">Log In</button>
+      <button type="button" routerLink="/" class="btn btn-secondary m-1">Go back</button>
+      <button type="submit" class="btn btn-primary m-1" [disabled]="authForm.invalid">Log In</button>
     </div>
   </form>
 </div>

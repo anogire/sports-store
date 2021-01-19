@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AdminComponent } from './admin/admin.component';
+import { AuthGuard } from './auth.guard';
 import { AuthComponent } from './auth/auth.component';
 import { MainComponent } from './main/main.component';
 import { OrdersComponent } from './main/orders/orders.component';
@@ -19,6 +20,7 @@ const routes: Routes = [
       },
       {
         path: 'main',
+        canActivate: [AuthGuard],
         component: MainComponent, //router-outlet
         children: [
           { path: 'products', component: ProductTableComponent },

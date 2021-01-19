@@ -1,2 +1,16 @@
-<p>main works!</p>
-<router-outlet></router-outlet>
+<div class="row mt-2">
+  <div class="col-3">
+    <button [routerLink]="'/admin/main/products'" routerLinkActive="active" class="btn btn-outline-info btn-block">
+      Products
+    </button>
+    <button [routerLink]="'/admin/main/orders'" routerLinkActive="active" class="btn btn-outline-info btn-block">
+      Orders
+    </button>
+    <button (click)="logout()" class="btn btn-outline-danger btn-block">
+      Logout
+    </button>
+  </div>
+  <div class="col-9">
+    <router-outlet></router-outlet>
+  </div>
+</div>

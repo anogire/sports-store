@@ -1,1 +1,24 @@
-<p>product-form works!</p>
+<div class="bg-primary p-2 text-white" [class.bg-warning]="!mode" [class.text-dark]="!mode">
+  <h5>{{mode ? 'Create' : 'Edit'}} product</h5>
+</div>
+<form [formGroup]="productForm" (ngSubmit)="send()" novalidate>
+  <label class="form-group main-input mt-2">Name<sup>*</sup>
+    <input type="text" class="form-control" formControlName="name" autofocus>
+  </label>
+  <label class="form-group main-input">Category<sup>*</sup>
+    <input type="text" id="category" class="form-control" formControlName="category">
+  </label>
+  <label class="form-group main-input">Description<sup>*</sup>
+    <textarea id="description" class="form-control" formControlName="description"></textarea>
+  </label>
+  <label class="form-group main-input">Price<sup>*</sup>
+    <input type="number" id="price" class="form-control" formControlName="price">
+  </label>
+  <button type="submit" [disabled]="productForm.invalid" class="btn btn-primary m-1" [class.bg-warning]="!mode"
+    aria-label="send changes">
+    {{mode ? 'Create' : 'Save'}}
+  </button>
+  <button type="reset" routerLink="/admin/main/products" class="btn btn-secondary" aria-label="cancel action">
+    Cancel
+  </button>
+</form>
